@@ -6,17 +6,12 @@ echo '============================='
 echo
 
 # Runs tomles:
-# output=$(tomles $INPUT_OPTIONS)
-# status="$?"
-
-
-echo "Hello $1"
-time=$(date)
-echo ::set-output name=time::$time
+output=$(tomles $INPUT_OPTIONS)
+status="$?"
 
 # Sets the output variable for Github Action API:
 # See: https://help.github.com/en/articles/development-tools-for-github-action
-#echo "::set-output name=output::$output"
+echo "::set-output name=output::$output"
 echo '================================='
 echo
 

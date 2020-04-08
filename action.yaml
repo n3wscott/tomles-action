@@ -1,15 +1,31 @@
 name: 'Tomles'
 description: 'Update some yaml!'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  package: # go package to update.
+    description: 'go package of dep to udpate'
     required: true
-    default: 'World'
+  branch:
+    description: 'set to this branch'
+    required: false
+  version:
+    description: 'set to this version'
+    required: false
+  revision:
+    description: 'set to this revision'
+    required: false
+
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  output:
+    description: 'The output of tomles run'
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - "update"
+    - "${{ inputs.package }}"
+    - "--revision=${{ inputs.revision }}"
+    - "--branch=${{ inputs.branch }}"
+    - "--version=${{ inputs.version}}"
+    - "--filename=/workspace/source/Gopkg.toml"
+    - "--verbose"
