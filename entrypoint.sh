@@ -1,12 +1,21 @@
 #!/bin/sh -l
 
 # Diagnostic output:
-echo "Using options: $INPUT_OPTIONS"
+echo "Using options:"
+
+echo "update"
+echo "${{ inputs.package }}"
+echo "--revision=${{ inputs.revision }}"
+echo "--branch=${{ inputs.branch }}"
+echo "--version=${{ inputs.version}}"
+echo "--filename=./Gopkg.toml"
+echo "--verbose"
+
 echo '============================='
 echo
 
 # Runs tomles:
-output=$($GOPATH/bin/tomles $INPUT_OPTIONS)
+output=$($GOPATH/bin/tomles update ${{ inputs.package }} --revision=${{ inputs.revision }} --branch=${{ inputs.branch }} --version=${{ inputs.version}} --filename=./Gopkg.toml --verbose)
 status="$?"
 
 # Sets the output variable for Github Action API:

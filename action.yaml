@@ -21,11 +21,3 @@ outputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - "update"
-    - "${{ inputs.package }}"
-    - "--revision=${{ inputs.revision }}"
-    - "--branch=${{ inputs.branch }}"
-    - "--version=${{ inputs.version}}"
-    - "--filename=./Gopkg.toml"
-    - "--verbose"
