@@ -6,7 +6,7 @@ echo '============================='
 echo
 
 # Runs tomles:
-output=$(tomles $INPUT_OPTIONS)
+output=$($GOPATH/bin/tomles $INPUT_OPTIONS)
 status="$?"
 
 # Sets the output variable for Github Action API:
