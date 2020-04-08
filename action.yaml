@@ -27,5 +27,5 @@ runs:
     - "--revision=${{ inputs.revision }}"
     - "--branch=${{ inputs.branch }}"
     - "--version=${{ inputs.version}}"
-    - "--filename=/workspace/source/Gopkg.toml"
+    - "--filename=./Gopkg.toml"
     - "--verbose"
